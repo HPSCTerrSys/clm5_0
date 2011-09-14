@@ -110,7 +110,10 @@ module clm_varctl
 !
   character(len=256), public :: frivinp_rtm  = ' '      ! RTM input data file name
   integer,            public :: rtm_nsteps = iundef     ! if > 1, average rtm over rtm_nsteps time steps
-  logical,            public :: ice_runoff = .true.     ! true => runoff should be split into liquid and ice otherwise just liquid
+  logical,            public :: ice_runoff = .true.     ! true => runoff is split into liquid and ice 
+                                                        ! otherwise just liquid
+  character(len=256), public :: fmapinp_rtm = ' '       ! mapping file from clm to rtm grid
+                                                        ! if blank - then rtm calculates the mapping matrix at runtime
 #endif
 !
 ! Decomp control variables
