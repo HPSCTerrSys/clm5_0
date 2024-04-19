@@ -1442,8 +1442,8 @@ contains
     ! !USES:
     use shr_const_mod    , only : SHR_CONST_TKFRZ
     use clm_time_manager , only : get_curr_date, get_curr_calday, get_days_per_year, get_rad_step_size
-    use pftconMod        , only : ncitrus ! the citrus PFT is used for now, separate PFTs for deciduous fruit tree species may be added in the future
-    use pftconMod        , only : nirrig_citrus
+    use pftconMod        , only : napple ! the citrus PFT is used for now, separate PFTs for deciduous fruit tree species may be added in the future
+    use pftconMod        , only : nirrig_apple
     use clm_varcon       , only : spval, secspday
     use clm_varctl       , only : use_fertilizer 
     use clm_varctl       , only : use_c13, use_c14
@@ -2136,8 +2136,8 @@ contains
     use clm_time_manager , only : get_curr_date, get_curr_calday, get_days_per_year, get_rad_step_size
     use pftconMod        , only : ntmp_corn, nswheat, nwwheat, ntmp_soybean
     use pftconMod        , only : nirrig_tmp_corn, nirrig_swheat, nirrig_wwheat, nirrig_tmp_soybean
-    use pftconMod        , only : ntrp_corn, nsugarcane, ntrp_soybean, ncotton, nrice
-    use pftconMod        , only : nirrig_trp_corn, nirrig_sugarcane, nirrig_trp_soybean
+    use pftconMod        , only : ntrp_corn, nsugarcane, covercrop_1, ncotton, nrice
+    use pftconMod        , only : nirrig_trp_corn, nirrig_sugarcane, covercrop_2
     use pftconMod        , only : nirrig_cotton, nirrig_rice
     use clm_varcon       , only : spval, secspday
     use clm_varctl       , only : use_fertilizer 
@@ -2427,7 +2427,7 @@ contains
                           ! go a specified amount of time before/after
                           ! climatological date
                           if (ivt(p) == ntmp_soybean .or. ivt(p) == nirrig_tmp_soybean .or. &
-                               ivt(p) == ntrp_soybean .or. ivt(p) == nirrig_trp_soybean) then
+                               ivt(p) == covercrop_1 .or. ivt(p) == covercrop_2) then
                              gddmaturity(p) = min(gdd1020(p), hybgdd(ivt(p)))
                           end if
                           if (ivt(p) == ntmp_corn .or. ivt(p) == nirrig_tmp_corn .or. &
@@ -2476,7 +2476,7 @@ contains
                           harvdate(p)  = NOT_Harvested
 
                           if (ivt(p) == ntmp_soybean .or. ivt(p) == nirrig_tmp_soybean .or. &
-                              ivt(p) == ntrp_soybean .or. ivt(p) == nirrig_trp_soybean) then
+                              ivt(p) == covercrop_1 .or. ivt(p) == covercrop_2) then
                              gddmaturity(p) = min(gdd1020(p), hybgdd(ivt(p)))
                           end if
                           if (ivt(p) == ntmp_corn .or. ivt(p) == nirrig_tmp_corn .or. &
