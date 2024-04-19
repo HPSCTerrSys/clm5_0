@@ -51,8 +51,8 @@ module pftconMod
   integer :: nirrig_wrye            ! value for winter rye (ir)
   integer :: ncassava               ! ...and so on
   integer :: nirrig_cassava
-  integer :: ncitrus
-  integer :: nirrig_citrus
+  integer :: napple
+  integer :: nirrig_apple
   integer :: ncocoa
   integer :: nirrig_cocoa
   integer :: ncoffee
@@ -93,8 +93,8 @@ module pftconMod
   integer :: nirrig_switchgrass
   integer :: ntrp_corn              !value for tropical corn (rf)
   integer :: nirrig_trp_corn        !value for tropical corn (ir)
-  integer :: ntrp_soybean           !value for tropical soybean (rf)
-  integer :: nirrig_trp_soybean     !value for tropical soybean (ir)
+  integer :: ncovercrop_1           ! before value for tropical soybean (rf)
+  integer :: ncovercrop_2           ! before value for tropical soybean (ir)
   integer :: npcropmax              ! value for last prognostic crop in list
   integer :: nc3crop                ! value for generic crop (rf)
   integer :: nc3irrig               ! value for irrigated generic crop (ir)
@@ -564,8 +564,8 @@ contains
     expected_pftnames(32) = 'irrigated_winter_rye               '
     expected_pftnames(33) = 'cassava                            '
     expected_pftnames(34) = 'irrigated_cassava                  '
-    expected_pftnames(35) = 'citrus                             '
-    expected_pftnames(36) = 'irrigated_citrus                   '
+    expected_pftnames(35) = 'apple                              '
+    expected_pftnames(36) = 'irrigated_apple                    '
     expected_pftnames(37) = 'cocoa                              '
     expected_pftnames(38) = 'irrigated_cocoa                    '
     expected_pftnames(39) = 'coffee                             '
@@ -606,8 +606,8 @@ contains
     expected_pftnames(74) = 'irrigated_switchgrass              '
     expected_pftnames(75) = 'tropical_corn                      '
     expected_pftnames(76) = 'irrigated_tropical_corn            '
-    expected_pftnames(77) = 'tropical_soybean                   '
-    expected_pftnames(78) = 'irrigated_tropical_soybean         '
+    expected_pftnames(77) = 'covercrop_1                        '
+    expected_pftnames(78) = 'covercrop_2                        '
 
     ! Set specific vegetation type values
 
@@ -1125,8 +1125,8 @@ contains
        if ( trim(pftname(i)) == 'irrigated_winter_rye'                ) nirrig_wrye          = i
        if ( trim(pftname(i)) == 'cassava'                             ) ncassava             = i
        if ( trim(pftname(i)) == 'irrigated_cassava'                   ) nirrig_cassava       = i
-       if ( trim(pftname(i)) == 'citrus'                              ) ncitrus              = i
-       if ( trim(pftname(i)) == 'irrigated_citrus'                    ) nirrig_citrus        = i
+       if ( trim(pftname(i)) == 'apple'                               ) napple               = i
+       if ( trim(pftname(i)) == 'irrigated_apple'                     ) nirrig_apple         = i
        if ( trim(pftname(i)) == 'cocoa'                               ) ncocoa               = i
        if ( trim(pftname(i)) == 'irrigated_cocoa'                     ) nirrig_cocoa         = i
        if ( trim(pftname(i)) == 'coffee'                              ) ncoffee              = i
@@ -1167,8 +1167,8 @@ contains
        if ( trim(pftname(i)) == 'irrigated_switchgrass'               ) nirrig_switchgrass   = i
        if ( trim(pftname(i)) == 'tropical_corn'                       ) ntrp_corn            = i
        if ( trim(pftname(i)) == 'irrigated_tropical_corn'             ) nirrig_trp_corn      = i
-       if ( trim(pftname(i)) == 'tropical_soybean'                    ) ntrp_soybean         = i
-       if ( trim(pftname(i)) == 'irrigated_tropical_soybean'          ) nirrig_trp_soybean   = i
+       if ( trim(pftname(i)) == 'covercrop_1'                         ) ncovercrop_1         = i
+       if ( trim(pftname(i)) == 'covercrop_2'                         ) ncovercrop_2         = i
     end do
 
     ntree                = nbrdlf_dcd_brl_tree  ! value for last type of tree
@@ -1199,7 +1199,7 @@ contains
                 i == nirrig_barley          .or. i == nirrig_wbarley     .or. &
                 i == nirrig_rye             .or. i == nirrig_wrye        .or. &
                 i == nirrig_cassava         .or.                              &
-                i == nirrig_citrus          .or.                              &
+                i == nirrig_apple           .or.                              &
                 i == nirrig_cocoa           .or. i == nirrig_coffee      .or. &
                 i == nirrig_cotton          .or.                              &
                 i == nirrig_datepalm        .or.                              &
@@ -1214,7 +1214,7 @@ contains
                 i == nirrig_sunflower       .or.                              &
                 i == nirrig_miscanthus      .or. i == nirrig_switchgrass .or. &
                 i == nirrig_trp_corn        .or.                              &
-                i == nirrig_trp_soybean) )then
+                i == ncovercrop_2) )then
              ! correct
           else if ( this%irrigated(i) == 0.0_r8 )then
              ! correct
