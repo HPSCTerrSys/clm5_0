@@ -1327,7 +1327,7 @@ contains
     ! !USES:
     use pftconMod              , only : npcropmin, pftcon
     use pftconMod              , only : ntmp_soybean, nirrig_tmp_soybean
-    use pftconMod              , only : ntrp_soybean, nirrig_trp_soybean
+    !use pftconMod              , only : ntrp_soybean, nirrig_trp_soybean
     use clm_varcon             , only : secspday, dzsoi_decomp
     use clm_varctl             , only : use_c13, use_c14
     use clm_varctl             , only : nscalar_opt, plant_ndemand_opt, substrate_term_opt, temp_scalar_opt
@@ -1823,22 +1823,22 @@ contains
                      end if
 
 
-                     if (astem(p) == astemf(ivt(p)) .or. &
-                          (ivt(p) /= ntmp_soybean .and. ivt(p) /= nirrig_tmp_soybean .and.&
-                           ivt(p) /= ntrp_soybean .and. ivt(p) /= nirrig_trp_soybean)) then
-                        if (grain_flag(p) == 0._r8) then
-                           t1 = 1 / dt
-                           leafn_to_retransn(p) = t1 * max(leafn(p)- (leafc(p) / fleafcn(ivt(p))),0._r8)
-                           livestemn_to_retransn(p) = t1 * max(livestemn(p) - (livestemc(p) / fstemcn(ivt(p))),0._r8)
-                           frootn_to_retransn(p) = 0._r8
-                           if (ffrootcn(ivt(p)) > 0._r8) then
-                              frootn_to_retransn(p) = t1 * max(frootn(p) - (frootc(p) / ffrootcn(ivt(p))),0._r8)
-                           end if
-                           grain_flag(p) = 1._r8
+                  if (astem(p) == astemf(ivt(p)) .or. &
+                       (ivt(p) /= ntmp_soybean .and. ivt(p) /= nirrig_tmp_soybean) ) then !.and.&
+                        !ivt(p) /= ntrp_soybean .and. ivt(p) /= nirrig_trp_soybean)) then
+                     if (grain_flag(p) == 0._r8) then
+                        t1 = 1 / dt
+                        leafn_to_retransn(p) = t1 * max(leafn(p)- (leafc(p) / fleafcn(ivt(p))),0._r8)
+                        livestemn_to_retransn(p) = t1 * max(livestemn(p) - (livestemc(p) / fstemcn(ivt(p))),0._r8)
+                        frootn_to_retransn(p) = 0._r8
+                        if (ffrootcn(ivt(p)) > 0._r8) then
+                           frootn_to_retransn(p) = t1 * max(frootn(p) - (frootc(p) / ffrootcn(ivt(p))),0._r8)
                         end if
+                        grain_flag(p) = 1._r8
                      end if
- 
-                     arepr(p) = 1._r8 - aroot(p) - astem(p) - aleaf(p)
+                  end if
+
+                  arepr(p) = 1._r8 - aroot(p) - astem(p) - aleaf(p)
 
                   else                   ! pre emergence
                      aleaf(p) = 1.e-5_r8 ! allocation coefficients should be irrelevant
