@@ -2135,7 +2135,7 @@ contains
     ! !USES:
     use clm_time_manager , only : get_curr_date, get_curr_calday, get_days_per_year, get_rad_step_size
     use pftconMod        , only : ntmp_corn, nswheat, nwwheat, ntmp_soybean, nbarley, nwbarley, nrye, nwrye, ncassava, napple, ncocoa, ncoffee, ncotton, ndatepalm, nfoddergrass, ngrapes, ngroundnuts, nmillet, noilpalm, npotatoes, npulses, nrapeseed, nrice, nsorghum, nsugarbeet, nsunflower, nmiscanthus, nswitchgrass, nc3crop, ncovercrop_1, ncovercrop_2
-    use pftconMod        , only : nirrig_tmp_corn, nirrig_swheat, nirrig_wwheat, nirrig_tmp_soybean, nirrig_barley, nirrig_wbarley, nirrig_rye, nirrig_wrye, nirrig_cassava, nirrig_citrus, nirrig_cocoa, nirrig_coffee, nirrig_cotton, nirrig_datepalm, nirrig_foddergrass, nirrig_grapes, nirrig_groundnuts, nirrig_millet, nirrig_oilpalm, nirrig_potatoes, nirrig_pulses, nirrig_rapeseed, nirrig_rice, nirrig_sorghum, nirrig_sugarbeet, nirrig_sunflower, nirrig_miscanthus, nirrig_switchgrass, nc3irrig
+    use pftconMod        , only : nirrig_tmp_corn, nirrig_swheat, nirrig_wwheat, nirrig_tmp_soybean, nirrig_barley, nirrig_wbarley, nirrig_rye, nirrig_wrye, nirrig_cassava, nirrig_apple, nirrig_cocoa, nirrig_coffee, nirrig_cotton, nirrig_datepalm, nirrig_foddergrass, nirrig_grapes, nirrig_groundnuts, nirrig_millet, nirrig_oilpalm, nirrig_potatoes, nirrig_pulses, nirrig_rapeseed, nirrig_rice, nirrig_sorghum, nirrig_sugarbeet, nirrig_sunflower, nirrig_miscanthus, nirrig_switchgrass, nc3irrig
     use pftconMod        , only : ntrp_corn, nsugarcane, ncotton, nrice
     use pftconMod        , only : nirrig_trp_corn, nirrig_sugarcane
     use pftconMod        , only : nirrig_cotton, nirrig_rice
@@ -2925,8 +2925,8 @@ contains
     !
 
     ! !USES:
-    use pftconMod        , only : ntmp_corn, nswheat,nwwheat,ntmp_soybean,nbarley, nwbarley, nrye, nwrye, ncassava, ncitrus, ncocoa,ncoffee,ncotton,ndatepalm, nfoddergrass, ngrapes, ngroundnuts, nmillet,noilpalm,npotatoes,npulses, nrapeseed, nrice, nsorghum, nsugarbeet,nsunflower,nmiscanthus,nswitchgrass, nc3crop, ncovercrop_1, ncovercrop_2
-    use pftconMod        , only : nirrig_tmp_corn,nirrig_swheat,nirrig_wwheat,nirrig_tmp_soybean, nirrig_barley, nirrig_wbarley,nirrig_rye,nirrig_wrye,nirrig_cassava, nirrig_citrus, nirrig_cocoa,nirrig_coffee,nirrig_cotton,nirrig_datepalm, nirrig_foddergrass,nirrig_grapes,nirrig_groundnuts,nirrig_millet, nirrig_oilpalm, nirrig_potatoes,nirrig_pulses,nirrig_rapeseed,nirrig_rice, nirrig_sorghum,nirrig_sugarbeet,nirrig_sunflower,nirrig_miscanthus, nirrig_switchgrass,nc3irrig
+    use pftconMod        , only : ntmp_corn, nswheat,nwwheat,ntmp_soybean,nbarley, nwbarley, nrye, nwrye, ncassava, napple, ncocoa,ncoffee,ncotton,ndatepalm, nfoddergrass, ngrapes, ngroundnuts, nmillet,noilpalm,npotatoes,npulses, nrapeseed, nrice, nsorghum, nsugarbeet,nsunflower,nmiscanthus,nswitchgrass, nc3crop, ncovercrop_1, ncovercrop_2
+    use pftconMod        , only : nirrig_tmp_corn,nirrig_swheat,nirrig_wwheat,nirrig_tmp_soybean, nirrig_barley, nirrig_wbarley,nirrig_rye,nirrig_wrye,nirrig_cassava, nirrig_apple, nirrig_cocoa,nirrig_coffee,nirrig_cotton,nirrig_datepalm, nirrig_foddergrass,nirrig_grapes,nirrig_groundnuts,nirrig_millet, nirrig_oilpalm, nirrig_potatoes,nirrig_pulses,nirrig_rapeseed,nirrig_rice, nirrig_sorghum,nirrig_sugarbeet,nirrig_sunflower,nirrig_miscanthus, nirrig_switchgrass,nc3irrig
     use pftconMod        , only : ntrp_corn, nsugarcane, ncotton, nrice
     use pftconMod        , only : nirrig_trp_corn, nirrig_sugarcane
     use pftconMod        , only : nirrig_cotton, nirrig_rice
