@@ -1,0 +1,3 @@
+[submodule "cime"]
+	path = cime
+	url = https://github.com/HPSCTerrSys/cime.git

@@ -3,7 +3,7 @@
 manage_externals.log
 /src/fates/
 /tools/PTCLM/
-/cime/
+# /cime/
 /components/
 /doc/doc-builder/
 
