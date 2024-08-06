@@ -1,3 +1,6 @@
 [submodule "cime"]
 	path = cime
 	url = https://github.com/HPSCTerrSys/cime.git
+[submodule "src/fates"]
+	path = src/fates
+	url = https://github.com/NGEET/fates
