@@ -4,3 +4,6 @@
 [submodule "src/fates"]
 	path = src/fates
 	url = https://github.com/NGEET/fates
+[submodule "components/cism"]
+	path = components/cism
+	url = https://github.com/HPSCTerrSys/CISM-wrapper.git
