@@ -7,3 +7,6 @@
 [submodule "components/cism"]
 	path = components/cism
 	url = https://github.com/HPSCTerrSys/CISM-wrapper.git
+[submodule "components/rtm"]
+	path = components/rtm
+	url = https://github.com/ESCOMP/RTM
