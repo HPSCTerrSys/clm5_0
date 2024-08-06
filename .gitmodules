@@ -10,3 +10,6 @@
 [submodule "components/rtm"]
 	path = components/rtm
 	url = https://github.com/ESCOMP/RTM
+[submodule "components/mosart"]
+	path = components/mosart
+	url = https://github.com/ESCOMP/MOSART
