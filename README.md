@@ -1,3 +1,19 @@
+# CLM5.0 for direct use in TSMP-PDAF
+
+This branch of CTSM contains CLM5.0 for use in TSMP-PDAF
+(https://github.com/HPSCTerrSys/TSMP).
+
+This branch starts from the latest release of CLM (currently:
+`release-clm5.0`, https://github.com/ESCOMP/CTSM/tree/release-clm5.0).
+
+The following changes are added to make this branch immediately usable
+with TSMP-PDAF:
+
+- TSMP-PDAF related changes in a fork of CIME
+  (https://github.com/HPSCTerrSys/cime/tree/clm5_0-tsmp-pdaf)
+- external codes CIME, FATES, CISM, MOSART, RTM included as `git
+  submodules`
+
 # CTSM
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3739617.svg)](https://doi.org/10.5281/zenodo.3739617)
