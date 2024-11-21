@@ -1,8 +1,34 @@
-Branch `release-clm5.0-add-params-dev`.
+Branch `release-clm5.0-add-params`.
 
-Changes compared to CLM5-release:
-- parameter input
-- source code changes in `biogeophys` and `main`
+This branch contains modifications on some modules for our study on ensemble simulations with perturbed parameters in the Community Land Model v.5.0 (CLM5). The modification allows for easy manipulation of hard-coded parameters. The parameters in the **PhotosynthesisMod**, **LunaMod**, and **SoilHydrologyMod** were added to the CLM parameter file. Similarly, the soil hydraulic parameters in the **SoilStateInitTimeConstMod** were added in the surface data file.
+
+# Parameter Extraction
+The following modules and parameters were impacted in *biogeophys*:
+
+1. **PhotosynthesisMod**
+- Parameters: vcmaxha, jmaxha, tpuha, lmrha, lmrhd, tpu25ratio, and theta_cj
+
+2. **LunaMod**
+- Parameters: jmaxb0, wc2wjb0
+
+3. **SoilHydrologyMod**
+- Parameter: fff
+
+4. **SoilStateInitTimeConstMod**
+- Parameters: psis_sat, shape_param, thetas, and ks
+
+Exacting these parameters impacted other modules in *main*:
+- **pftconMod**
+- **readParamsMod**
+
+## Usage
+1. Clone the repository
+2. Modify the extracted parameters in the CLM parameter file as needed.
+3. Rebuild the CLM model to apply changes
+
+## Caution
+If you are not interested in perturbing the soil hydraulic parameters in **SoilStateInitTimeConstMod**, use the default module. 
+
 
 # CTSM
 
