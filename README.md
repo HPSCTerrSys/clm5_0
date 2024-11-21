@@ -22,9 +22,10 @@ Exacting these parameters impacted other modules in *main*:
 - **readParamsMod**
 
 ## Usage
-1. Clone the repository
+1. Clone the repository.
 2. Modify the extracted parameters in the CLM parameter file as needed.
-3. Rebuild the CLM model to apply changes
+3. Rebuild the CLM model to apply changes.
+4. Run ensemble simulations with your desired configurations.
 
 ## Caution
 If you are not interested in perturbing the soil hydraulic parameters in **SoilStateInitTimeConstMod**, use the default module. 
